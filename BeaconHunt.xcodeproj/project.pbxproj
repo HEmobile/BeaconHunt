@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A565ADC41889B83500F66917 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC31889B83500F66917 /* Foundation.framework */; };
+		A565ADC61889B83500F66917 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC51889B83500F66917 /* CoreGraphics.framework */; };
+		A565ADC81889B83500F66917 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC71889B83500F66917 /* UIKit.framework */; };
+		A565ADCE1889B83500F66917 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A565ADCC1889B83500F66917 /* InfoPlist.strings */; };
+		A565ADD01889B83500F66917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADCF1889B83500F66917 /* main.m */; };
+		A565ADD41889B83500F66917 /* HEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADD31889B83500F66917 /* HEAppDelegate.m */; };
+		A565ADD71889B83500F66917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A565ADD51889B83500F66917 /* Main.storyboard */; };
+		A565ADDA1889B83500F66917 /* HEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADD91889B83500F66917 /* HEViewController.m */; };
+		A565ADDC1889B83500F66917 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A565ADDB1889B83500F66917 /* Images.xcassets */; };
+		A565ADE31889B83500F66917 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADE21889B83500F66917 /* XCTest.framework */; };
+		A565ADE41889B83500F66917 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC31889B83500F66917 /* Foundation.framework */; };
+		A565ADE51889B83500F66917 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC71889B83500F66917 /* UIKit.framework */; };
+		A565ADED1889B83500F66917 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A565ADEB1889B83500F66917 /* InfoPlist.strings */; };
+		A565ADEF1889B83500F66917 /* BeaconHuntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADEE1889B83500F66917 /* BeaconHuntTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A565ADE61889B83500F66917 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A565ADB81889B83500F66917 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A565ADBF1889B83500F66917;
+			remoteInfo = BeaconHunt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A565ADC01889B83500F66917 /* BeaconHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A565ADC31889B83500F66917 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A565ADC51889B83500F66917 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A565ADC71889B83500F66917 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A565ADCB1889B83500F66917 /* BeaconHunt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeaconHunt-Info.plist"; sourceTree = "<group>"; };
+		A565ADCD1889B83500F66917 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A565ADCF1889B83500F66917 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A565ADD11889B83500F66917 /* BeaconHunt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BeaconHunt-Prefix.pch"; sourceTree = "<group>"; };
+		A565ADD21889B83500F66917 /* HEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEAppDelegate.h; sourceTree = "<group>"; };
+		A565ADD31889B83500F66917 /* HEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEAppDelegate.m; sourceTree = "<group>"; };
+		A565ADD61889B83500F66917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A565ADD81889B83500F66917 /* HEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEViewController.h; sourceTree = "<group>"; };
+		A565ADD91889B83500F66917 /* HEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEViewController.m; sourceTree = "<group>"; };
+		A565ADDB1889B83500F66917 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A565ADE11889B83500F66917 /* BeaconHuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeaconHuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A565ADE21889B83500F66917 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A565ADEA1889B83500F66917 /* BeaconHuntTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeaconHuntTests-Info.plist"; sourceTree = "<group>"; };
+		A565ADEC1889B83500F66917 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A565ADEE1889B83500F66917 /* BeaconHuntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconHuntTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A565ADBD1889B83500F66917 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A565ADC61889B83500F66917 /* CoreGraphics.framework in Frameworks */,
+				A565ADC81889B83500F66917 /* UIKit.framework in Frameworks */,
+				A565ADC41889B83500F66917 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A565ADDE1889B83500F66917 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A565ADE31889B83500F66917 /* XCTest.framework in Frameworks */,
+				A565ADE51889B83500F66917 /* UIKit.framework in Frameworks */,
+				A565ADE41889B83500F66917 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A565ADB71889B83500F66917 = {
+			isa = PBXGroup;
+			children = (
+				A565ADC91889B83500F66917 /* BeaconHunt */,
+				A565ADE81889B83500F66917 /* BeaconHuntTests */,
+				A565ADC21889B83500F66917 /* Frameworks */,
+				A565ADC11889B83500F66917 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A565ADC11889B83500F66917 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A565ADC01889B83500F66917 /* BeaconHunt.app */,
+				A565ADE11889B83500F66917 /* BeaconHuntTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A565ADC21889B83500F66917 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A565ADC31889B83500F66917 /* Foundation.framework */,
+				A565ADC51889B83500F66917 /* CoreGraphics.framework */,
+				A565ADC71889B83500F66917 /* UIKit.framework */,
+				A565ADE21889B83500F66917 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A565ADC91889B83500F66917 /* BeaconHunt */ = {
+			isa = PBXGroup;
+			children = (
+				A565ADD21889B83500F66917 /* HEAppDelegate.h */,
+				A565ADD31889B83500F66917 /* HEAppDelegate.m */,
+				A565ADD51889B83500F66917 /* Main.storyboard */,
+				A565ADD81889B83500F66917 /* HEViewController.h */,
+				A565ADD91889B83500F66917 /* HEViewController.m */,
+				A565ADDB1889B83500F66917 /* Images.xcassets */,
+				A565ADCA1889B83500F66917 /* Supporting Files */,
+			);
+			path = BeaconHunt;
+			sourceTree = "<group>";
+		};
+		A565ADCA1889B83500F66917 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A565ADCB1889B83500F66917 /* BeaconHunt-Info.plist */,
+				A565ADCC1889B83500F66917 /* InfoPlist.strings */,
+				A565ADCF1889B83500F66917 /* main.m */,
+				A565ADD11889B83500F66917 /* BeaconHunt-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A565ADE81889B83500F66917 /* BeaconHuntTests */ = {
+			isa = PBXGroup;
+			children = (
+				A565ADEE1889B83500F66917 /* BeaconHuntTests.m */,
+				A565ADE91889B83500F66917 /* Supporting Files */,
+			);
+			path = BeaconHuntTests;
+			sourceTree = "<group>";
+		};
+		A565ADE91889B83500F66917 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A565ADEA1889B83500F66917 /* BeaconHuntTests-Info.plist */,
+				A565ADEB1889B83500F66917 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A565ADBF1889B83500F66917 /* BeaconHunt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A565ADF21889B83500F66917 /* Build configuration list for PBXNativeTarget "BeaconHunt" */;
+			buildPhases = (
+				A565ADBC1889B83500F66917 /* Sources */,
+				A565ADBD1889B83500F66917 /* Frameworks */,
+				A565ADBE1889B83500F66917 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeaconHunt;
+			productName = BeaconHunt;
+			productReference = A565ADC01889B83500F66917 /* BeaconHunt.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A565ADE01889B83500F66917 /* BeaconHuntTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A565ADF51889B83500F66917 /* Build configuration list for PBXNativeTarget "BeaconHuntTests" */;
+			buildPhases = (
+				A565ADDD1889B83500F66917 /* Sources */,
+				A565ADDE1889B83500F66917 /* Frameworks */,
+				A565ADDF1889B83500F66917 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A565ADE71889B83500F66917 /* PBXTargetDependency */,
+			);
+			name = BeaconHuntTests;
+			productName = BeaconHuntTests;
+			productReference = A565ADE11889B83500F66917 /* BeaconHuntTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A565ADB81889B83500F66917 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HE;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "HE:mobile";
+				TargetAttributes = {
+					A565ADE01889B83500F66917 = {
+						TestTargetID = A565ADBF1889B83500F66917;
+					};
+				};
+			};
+			buildConfigurationList = A565ADBB1889B83500F66917 /* Build configuration list for PBXProject "BeaconHunt" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A565ADB71889B83500F66917;
+			productRefGroup = A565ADC11889B83500F66917 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A565ADBF1889B83500F66917 /* BeaconHunt */,
+				A565ADE01889B83500F66917 /* BeaconHuntTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A565ADBE1889B83500F66917 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A565ADDC1889B83500F66917 /* Images.xcassets in Resources */,
+				A565ADCE1889B83500F66917 /* InfoPlist.strings in Resources */,
+				A565ADD71889B83500F66917 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A565ADDF1889B83500F66917 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A565ADED1889B83500F66917 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A565ADBC1889B83500F66917 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A565ADDA1889B83500F66917 /* HEViewController.m in Sources */,
+				A565ADD01889B83500F66917 /* main.m in Sources */,
+				A565ADD41889B83500F66917 /* HEAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A565ADDD1889B83500F66917 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A565ADEF1889B83500F66917 /* BeaconHuntTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A565ADE71889B83500F66917 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A565ADBF1889B83500F66917 /* BeaconHunt */;
+			targetProxy = A565ADE61889B83500F66917 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A565ADCC1889B83500F66917 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A565ADCD1889B83500F66917 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A565ADD51889B83500F66917 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A565ADD61889B83500F66917 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A565ADEB1889B83500F66917 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A565ADEC1889B83500F66917 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A565ADF01889B83500F66917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A565ADF11889B83500F66917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A565ADF31889B83500F66917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeaconHunt/BeaconHunt-Prefix.pch";
+				INFOPLIST_FILE = "BeaconHunt/BeaconHunt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A565ADF41889B83500F66917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeaconHunt/BeaconHunt-Prefix.pch";
+				INFOPLIST_FILE = "BeaconHunt/BeaconHunt-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A565ADF61889B83500F66917 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BeaconHunt.app/BeaconHunt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeaconHunt/BeaconHunt-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BeaconHuntTests/BeaconHuntTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A565ADF71889B83500F66917 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BeaconHunt.app/BeaconHunt";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeaconHunt/BeaconHunt-Prefix.pch";
+				INFOPLIST_FILE = "BeaconHuntTests/BeaconHuntTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A565ADBB1889B83500F66917 /* Build configuration list for PBXProject "BeaconHunt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A565ADF01889B83500F66917 /* Debug */,
+				A565ADF11889B83500F66917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A565ADF21889B83500F66917 /* Build configuration list for PBXNativeTarget "BeaconHunt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A565ADF31889B83500F66917 /* Debug */,
+				A565ADF41889B83500F66917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A565ADF51889B83500F66917 /* Build configuration list for PBXNativeTarget "BeaconHuntTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A565ADF61889B83500F66917 /* Debug */,
+				A565ADF71889B83500F66917 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A565ADB81889B83500F66917 /* Project object */;
+}
