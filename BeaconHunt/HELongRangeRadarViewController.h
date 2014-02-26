@@ -1,5 +1,5 @@
 //
-//  HEViewController.h
+//  HELongRangeRadarViewController.h
 //  BeaconHunt
 //
 //  Created by Roberto Silva on 17/01/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HEViewController : UIViewController
+@interface HELongRangeRadarViewController : UIViewController
 
 @end

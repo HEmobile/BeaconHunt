@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A555FBC318BE651E00E4036E /* HERegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBC218BE651E00E4036E /* HERegisterViewController.m */; };
+		A555FBC918BE672100E4036E /* HEActivityIndicatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBC618BE672100E4036E /* HEActivityIndicatorButton.m */; };
+		A555FBCA18BE672100E4036E /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBC818BE672100E4036E /* NSString+Helper.m */; };
+		A555FBCD18BE688E00E4036E /* HEBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBCC18BE688E00E4036E /* HEBasicTableViewController.m */; };
+		A555FBD018BE691700E4036E /* HEHuntListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBCF18BE691700E4036E /* HEHuntListViewController.m */; };
+		A555FBD318BE69D400E4036E /* BHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBD218BE69D400E4036E /* BHConstants.m */; };
 		A565ADC41889B83500F66917 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC31889B83500F66917 /* Foundation.framework */; };
 		A565ADC61889B83500F66917 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC51889B83500F66917 /* CoreGraphics.framework */; };
 		A565ADC81889B83500F66917 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC71889B83500F66917 /* UIKit.framework */; };
@@ -14,13 +20,15 @@
 		A565ADD01889B83500F66917 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADCF1889B83500F66917 /* main.m */; };
 		A565ADD41889B83500F66917 /* HEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADD31889B83500F66917 /* HEAppDelegate.m */; };
 		A565ADD71889B83500F66917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A565ADD51889B83500F66917 /* Main.storyboard */; };
-		A565ADDA1889B83500F66917 /* HEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADD91889B83500F66917 /* HEViewController.m */; };
 		A565ADDC1889B83500F66917 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A565ADDB1889B83500F66917 /* Images.xcassets */; };
 		A565ADE31889B83500F66917 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADE21889B83500F66917 /* XCTest.framework */; };
 		A565ADE41889B83500F66917 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC31889B83500F66917 /* Foundation.framework */; };
 		A565ADE51889B83500F66917 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC71889B83500F66917 /* UIKit.framework */; };
 		A565ADED1889B83500F66917 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A565ADEB1889B83500F66917 /* InfoPlist.strings */; };
 		A565ADEF1889B83500F66917 /* BeaconHuntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADEE1889B83500F66917 /* BeaconHuntTests.m */; };
+		A565ADFD1889BB4200F66917 /* HECloseRangeRadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADFC1889BB4200F66917 /* HECloseRangeRadarViewController.m */; };
+		A565AE001889C71D00F66917 /* HELongRangeRadarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A565ADFF1889C71D00F66917 /* HELongRangeRadarViewController.m */; };
+		BBD7A828B40248BB977EB28F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081DD72E3464BA6B1951769 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +42,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5081DD72E3464BA6B1951769 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A555FBC118BE651E00E4036E /* HERegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HERegisterViewController.h; sourceTree = "<group>"; };
+		A555FBC218BE651E00E4036E /* HERegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HERegisterViewController.m; sourceTree = "<group>"; };
+		A555FBC518BE672100E4036E /* HEActivityIndicatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HEActivityIndicatorButton.h; path = ../../HECommonClassesIOS/HEActivityIndicatorButton.h; sourceTree = "<group>"; };
+		A555FBC618BE672100E4036E /* HEActivityIndicatorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HEActivityIndicatorButton.m; path = ../../HECommonClassesIOS/HEActivityIndicatorButton.m; sourceTree = "<group>"; };
+		A555FBC718BE672100E4036E /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Helper.h"; path = "../../HECommonClassesIOS/NSString+Helper.h"; sourceTree = "<group>"; };
+		A555FBC818BE672100E4036E /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Helper.m"; path = "../../HECommonClassesIOS/NSString+Helper.m"; sourceTree = "<group>"; };
+		A555FBCB18BE688E00E4036E /* HEBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBasicTableViewController.h; sourceTree = "<group>"; };
+		A555FBCC18BE688E00E4036E /* HEBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBasicTableViewController.m; sourceTree = "<group>"; };
+		A555FBCE18BE691700E4036E /* HEHuntListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHuntListViewController.h; sourceTree = "<group>"; };
+		A555FBCF18BE691700E4036E /* HEHuntListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHuntListViewController.m; sourceTree = "<group>"; };
+		A555FBD118BE69D400E4036E /* BHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHConstants.h; sourceTree = "<group>"; };
+		A555FBD218BE69D400E4036E /* BHConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHConstants.m; sourceTree = "<group>"; };
 		A565ADC01889B83500F66917 /* BeaconHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A565ADC31889B83500F66917 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A565ADC51889B83500F66917 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,14 +66,17 @@
 		A565ADD21889B83500F66917 /* HEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEAppDelegate.h; sourceTree = "<group>"; };
 		A565ADD31889B83500F66917 /* HEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEAppDelegate.m; sourceTree = "<group>"; };
 		A565ADD61889B83500F66917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A565ADD81889B83500F66917 /* HEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HEViewController.h; sourceTree = "<group>"; };
-		A565ADD91889B83500F66917 /* HEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HEViewController.m; sourceTree = "<group>"; };
 		A565ADDB1889B83500F66917 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A565ADE11889B83500F66917 /* BeaconHuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeaconHuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A565ADE21889B83500F66917 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A565ADEA1889B83500F66917 /* BeaconHuntTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeaconHuntTests-Info.plist"; sourceTree = "<group>"; };
 		A565ADEC1889B83500F66917 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A565ADEE1889B83500F66917 /* BeaconHuntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconHuntTests.m; sourceTree = "<group>"; };
+		A565ADFB1889BB4200F66917 /* HECloseRangeRadarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HECloseRangeRadarViewController.h; sourceTree = "<group>"; };
+		A565ADFC1889BB4200F66917 /* HECloseRangeRadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HECloseRangeRadarViewController.m; sourceTree = "<group>"; };
+		A565ADFE1889C71D00F66917 /* HELongRangeRadarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HELongRangeRadarViewController.h; sourceTree = "<group>"; };
+		A565ADFF1889C71D00F66917 /* HELongRangeRadarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HELongRangeRadarViewController.m; sourceTree = "<group>"; };
+		B7B721683620446990FCC499 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +87,7 @@
 				A565ADC61889B83500F66917 /* CoreGraphics.framework in Frameworks */,
 				A565ADC81889B83500F66917 /* UIKit.framework in Frameworks */,
 				A565ADC41889B83500F66917 /* Foundation.framework in Frameworks */,
+				BBD7A828B40248BB977EB28F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +104,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A555FBC418BE666F00E4036E /* Common Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A555FBCB18BE688E00E4036E /* HEBasicTableViewController.h */,
+				A555FBCC18BE688E00E4036E /* HEBasicTableViewController.m */,
+				A555FBC518BE672100E4036E /* HEActivityIndicatorButton.h */,
+				A555FBC618BE672100E4036E /* HEActivityIndicatorButton.m */,
+				A555FBC718BE672100E4036E /* NSString+Helper.h */,
+				A555FBC818BE672100E4036E /* NSString+Helper.m */,
+			);
+			name = "Common Classes";
+			sourceTree = "<group>";
+		};
 		A565ADB71889B83500F66917 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +124,7 @@
 				A565ADE81889B83500F66917 /* BeaconHuntTests */,
 				A565ADC21889B83500F66917 /* Frameworks */,
 				A565ADC11889B83500F66917 /* Products */,
+				B7B721683620446990FCC499 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +144,7 @@
 				A565ADC51889B83500F66917 /* CoreGraphics.framework */,
 				A565ADC71889B83500F66917 /* UIKit.framework */,
 				A565ADE21889B83500F66917 /* XCTest.framework */,
+				5081DD72E3464BA6B1951769 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,13 +152,15 @@
 		A565ADC91889B83500F66917 /* BeaconHunt */ = {
 			isa = PBXGroup;
 			children = (
-				A565ADD21889B83500F66917 /* HEAppDelegate.h */,
-				A565ADD31889B83500F66917 /* HEAppDelegate.m */,
-				A565ADD51889B83500F66917 /* Main.storyboard */,
-				A565ADD81889B83500F66917 /* HEViewController.h */,
-				A565ADD91889B83500F66917 /* HEViewController.m */,
 				A565ADDB1889B83500F66917 /* Images.xcassets */,
 				A565ADCA1889B83500F66917 /* Supporting Files */,
+				A555FBC418BE666F00E4036E /* Common Classes */,
+				A565ADF81889B84C00F66917 /* Model */,
+				A565ADF91889B85A00F66917 /* View */,
+				A565ADFA1889B86200F66917 /* Controller */,
+				A565ADD51889B83500F66917 /* Main.storyboard */,
+				A565ADD21889B83500F66917 /* HEAppDelegate.h */,
+				A565ADD31889B83500F66917 /* HEAppDelegate.m */,
 			);
 			path = BeaconHunt;
 			sourceTree = "<group>";
@@ -130,6 +172,8 @@
 				A565ADCC1889B83500F66917 /* InfoPlist.strings */,
 				A565ADCF1889B83500F66917 /* main.m */,
 				A565ADD11889B83500F66917 /* BeaconHunt-Prefix.pch */,
+				A555FBD118BE69D400E4036E /* BHConstants.h */,
+				A555FBD218BE69D400E4036E /* BHConstants.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -152,6 +196,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A565ADF81889B84C00F66917 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A565ADF91889B85A00F66917 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A565ADFA1889B86200F66917 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A565ADFB1889BB4200F66917 /* HECloseRangeRadarViewController.h */,
+				A565ADFC1889BB4200F66917 /* HECloseRangeRadarViewController.m */,
+				A565ADFE1889C71D00F66917 /* HELongRangeRadarViewController.h */,
+				A565ADFF1889C71D00F66917 /* HELongRangeRadarViewController.m */,
+				A555FBC118BE651E00E4036E /* HERegisterViewController.h */,
+				A555FBC218BE651E00E4036E /* HERegisterViewController.m */,
+				A555FBCE18BE691700E4036E /* HEHuntListViewController.h */,
+				A555FBCF18BE691700E4036E /* HEHuntListViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +232,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A565ADF21889B83500F66917 /* Build configuration list for PBXNativeTarget "BeaconHunt" */;
 			buildPhases = (
+				6C6737121820442CB3BDC614 /* Check Pods Manifest.lock */,
 				A565ADBC1889B83500F66917 /* Sources */,
 				A565ADBD1889B83500F66917 /* Frameworks */,
 				A565ADBE1889B83500F66917 /* Resources */,
+				01AD07A769E944639026A123 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -200,6 +275,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "HE:mobile";
 				TargetAttributes = {
+					A565ADBF1889B83500F66917 = {
+						DevelopmentTeam = Q4GAXD7V7F;
+					};
 					A565ADE01889B83500F66917 = {
 						TestTargetID = A565ADBF1889B83500F66917;
 					};
@@ -245,14 +323,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01AD07A769E944639026A123 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C6737121820442CB3BDC614 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A565ADBC1889B83500F66917 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A565ADDA1889B83500F66917 /* HEViewController.m in Sources */,
+				A555FBC318BE651E00E4036E /* HERegisterViewController.m in Sources */,
+				A555FBC918BE672100E4036E /* HEActivityIndicatorButton.m in Sources */,
+				A565AE001889C71D00F66917 /* HELongRangeRadarViewController.m in Sources */,
+				A555FBD318BE69D400E4036E /* BHConstants.m in Sources */,
 				A565ADD01889B83500F66917 /* main.m in Sources */,
+				A565ADFD1889BB4200F66917 /* HECloseRangeRadarViewController.m in Sources */,
+				A555FBCD18BE688E00E4036E /* HEBasicTableViewController.m in Sources */,
+				A555FBD018BE691700E4036E /* HEHuntListViewController.m in Sources */,
 				A565ADD41889B83500F66917 /* HEAppDelegate.m in Sources */,
+				A555FBCA18BE672100E4036E /* NSString+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,26 +494,34 @@
 		};
 		A565ADF31889B83500F66917 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7B721683620446990FCC499 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconHunt/BeaconHunt-Prefix.pch";
 				INFOPLIST_FILE = "BeaconHunt/BeaconHunt-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		A565ADF41889B83500F66917 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7B721683620446990FCC499 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconHunt/BeaconHunt-Prefix.pch";
 				INFOPLIST_FILE = "BeaconHunt/BeaconHunt-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -461,6 +587,7 @@
 				A565ADF41889B83500F66917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A565ADF51889B83500F66917 /* Build configuration list for PBXNativeTarget "BeaconHuntTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +596,7 @@
 				A565ADF71889B83500F66917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
