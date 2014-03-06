@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="Main v1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Beacon" representedClassName="Beacon" syncable="YES">
+        <attribute name="found" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="majorId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minorId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="proxUUID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uniqueId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="beacons" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="finished" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uniqueId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="beacons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Beacon" inverseName="event" inverseEntity="Beacon" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Beacon" positionX="160" positionY="0" width="128" height="148"/>
+        <element name="Event" positionX="160" positionY="192" width="128" height="103"/>
+    </elements>
+</model>

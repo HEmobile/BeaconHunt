@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Beacon.h"
 
 @interface HECloseRangeRadarViewController : UIViewController
-
+@property (nonatomic, strong) Beacon *beacon;
 @end

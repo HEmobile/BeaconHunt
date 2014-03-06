@@ -14,6 +14,41 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+#pragma mark EXPORTS TO PARSe
+
+- (void)exportEventsToParse
+{
+    //Create Beacons
+    PFObject *beacon1 = [PFObject objectWithClassName:@"Beacon"];
+    beacon1[@"proxUUID"] = @"B9407F30-F5F8-466E-AFF9-25556B57FE6D";
+    beacon1[@"majorId"] = @"13703";
+    beacon1[@"minorId"] = @"10228";
+    beacon1[@"password"] = @"Eureka1";
+    [beacon1 save];
+    
+    NSLog(@"beacon1:%@",beacon1.objectId);
+    
+    PFObject *beacon2 = [PFObject objectWithClassName:@"Beacon"];
+    beacon2[@"proxUUID"] = @"B9407F30-F5F8-466E-AFF9-25556B57FE6D";
+    beacon2[@"majorId"] = @"36023";
+    beacon2[@"minorId"] = @"13959";
+    beacon2[@"password"] = @"I win1";
+    [beacon2 save];
+    
+    NSLog(@"beacon2:%@",beacon2.objectId);
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Event"];
+    [query getObjectInBackgroundWithId:@"mwThXFV9kn" block:^(PFObject *event, NSError *error) {
+        // Do something with the returned PFObject in the gameScore variable.
+        NSLog(@"%@", event);
+        
+        [event addObjectsFromArray:@[beacon1,beacon2] forKey:@"beaconList"];
+        [event saveInBackground];
+    }];
+}
+
+#pragma mark LIFE CYCLE
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -21,6 +56,8 @@
                   clientKey:@"N0iaWxsnSR9EQi2IUl57o1MwwyudeAMPRFugKmPa"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    //[self exportEventsToParse];
     return YES;
 }
 							
@@ -105,7 +142,7 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Main.sqlite"];
     // Remove comment to clear the DB - TODO
-    //[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:

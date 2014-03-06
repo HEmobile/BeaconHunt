@@ -9,8 +9,13 @@
 #import "HEHuntListViewController.h"
 #import <FXKeychain.h>
 #import "HERegisterViewController.h"
+#import "HELongRangeRadarViewController.h"
+#import "Event+Helper.h"
+#import "BHEventCell.h"
+#import "Beacon+Helper.h"
 
 NSString *const BHRegisterUserSegueID = @"Register User Segue";
+NSString *const BHStartHuntSegueID = @"Start Hunt Segue";
 
 @interface HEHuntListViewController ()<BCRegisterUserProtocol>
 
@@ -24,12 +29,9 @@ NSString *const BHRegisterUserSegueID = @"Register User Segue";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([self hasCredentialsInKeychain]) {
+        [self loadData];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -38,6 +40,8 @@ NSString *const BHRegisterUserSegueID = @"Register User Segue";
     
     if (![self hasCredentialsInKeychain]) {
         [self performSegueWithIdentifier:BHRegisterUserSegueID sender:self];
+    } else {
+        [self loadFromServer];
     }
 }
 
@@ -49,6 +53,12 @@ NSString *const BHRegisterUserSegueID = @"Register User Segue";
         HERegisterViewController *registerVC = segue.destinationViewController;
         
         registerVC.delegate = self;
+    } else if ([segue.identifier isEqualToString:BHStartHuntSegueID]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        Event *event = [self.dataArray objectAtIndex:indexPath.row];
+        
+        HELongRangeRadarViewController *longRangeVC = segue.destinationViewController;        
+        longRangeVC.event = event;
     }
 }
 
@@ -71,8 +81,37 @@ NSString *const BHRegisterUserSegueID = @"Register User Segue";
     {
         [self dismissViewControllerAnimated:YES completion:^{
             // Do something
+            [self loadFromServer];
         }];
     }
+}
+
+#pragma mark TABLE VIEW
+
+- (void)loadFromServer
+{
+    [Event loadFromServerWithBlock:^(BOOL success, NSError *errorMessage) {
+        if (success) {
+            [self loadData];
+        }
+    }];
+}
+
+- (void)loadData
+{
+    self.dataArray = [Event orderedList];
+    [self.tableView reloadData];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BHEventCell *cell = (BHEventCell *)[tableView dequeueReusableCellWithIdentifier:[BHEventCell identifier] forIndexPath:indexPath];
+    
+    Event *event = [self.dataArray objectAtIndex:indexPath.row];
+    
+    cell.eventNameLabel.text = event.name;
+    
+    return cell;
 }
 
 @end

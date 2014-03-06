@@ -92,31 +92,26 @@
 {
     if([beacons count] > 0)
     {
-        if(!self.selectedBeacon)
+        for (ESTBeacon* cBeacon in beacons)
         {
-            // initially pick closest beacon
-            self.selectedBeacon = [beacons objectAtIndex:0];
-        }
-        else
-        {
-            for (ESTBeacon* cBeacon in beacons)
+            // update beacon it same as selected initially
+            if([self.beacon.majorId unsignedShortValue] == [cBeacon.major unsignedShortValue] &&
+               [self.beacon.minorId unsignedShortValue] == [cBeacon.minor unsignedShortValue])
             {
-                // update beacon it same as selected initially
-                if([self.selectedBeacon.major unsignedShortValue] == [cBeacon.major unsignedShortValue] &&
-                   [self.selectedBeacon.minor unsignedShortValue] == [cBeacon.minor unsignedShortValue])
-                {
-                    self.selectedBeacon = cBeacon;
-                }
+                NSLog(@"found beacon");
+                self.selectedBeacon = cBeacon;
             }
         }
         
-        // based on observation rssi is not getting bigger then -30
-        // so it changes from -30 to -100 so we normalize
-        float distFactor = ((float)self.selectedBeacon.rssi + 30) / -70;
-        
-        // calculate and set new y position
-        float newYPos = self.dotMinPos + distFactor * self.dotRange;
-        self.positionDot.center = CGPointMake(self.view.bounds.size.width / 2, newYPos);
+        if (self.selectedBeacon) {
+            // based on observation rssi is not getting bigger then -30
+            // so it changes from -30 to -100 so we normalize
+            float distFactor = ((float)self.selectedBeacon.rssi + 30) / -70;
+            
+            // calculate and set new y position
+            float newYPos = self.dotMinPos + distFactor * self.dotRange;
+            self.positionDot.center = CGPointMake(self.view.bounds.size.width / 2, newYPos);
+        }
     }
 }
 

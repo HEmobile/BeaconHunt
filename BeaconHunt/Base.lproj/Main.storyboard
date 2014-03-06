@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Close Range Radar View Controller-->
+        <!--Close Range Radar View Controller - Track Beacon-->
         <scene sceneID="QT4-wb-XvJ">
             <objects>
                 <viewController id="8zv-gt-ax4" customClass="HECloseRangeRadarViewController" sceneMemberID="viewController">
@@ -29,6 +29,7 @@
                             <constraint firstItem="QDE-xE-JIp" firstAttribute="top" secondItem="eHQ-1f-Nx7" secondAttribute="bottom" id="llm-pM-qeB"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Track Beacon" id="4Ex-zu-PRB"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="eHQ-1f-Nx7" id="uJ3-YW-hfI"/>
                     </connections>
@@ -177,11 +178,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSE-xd-O3r">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSE-xd-O3r">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="radarBackgroundBig" translatesAutoresizingMaskIntoConstraints="NO" id="IH4-YU-xgT">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="radarBackgroundBig" translatesAutoresizingMaskIntoConstraints="NO" id="IH4-YU-xgT">
                                         <rect key="frame" x="-39" y="10" width="397" height="397"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <constraints>
@@ -213,11 +214,12 @@
                     <connections>
                         <outlet property="beaconContainer" destination="GSE-xd-O3r" id="ort-H9-Zds"/>
                         <outlet property="radarImageView" destination="IH4-YU-xgT" id="8cu-tt-8R9"/>
+                        <segue destination="8zv-gt-ax4" kind="push" identifier="Track Beacon Segue" id="nfV-r4-WJU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfS-Nl-wIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084" y="-18"/>
+            <point key="canvasLocation" x="1051" y="-16"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="05V-Ex-esQ">
@@ -253,6 +255,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="EventCell" id="G5N-dk-XR4" customClass="BHEventCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5N-dk-XR4" id="tgF-Kx-lBZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6MN-NS-xqC">
+                                                    <rect key="frame" x="15" y="11" width="266" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="eventNameLabel" destination="6MN-NS-xqC" id="CVg-Yl-obC"/>
+                                            <segue destination="tbX-TK-lqT" kind="push" identifier="Start Hunt Segue" id="XRX-rd-VQw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

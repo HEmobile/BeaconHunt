@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Event+Helper.h"
 
 @interface HELongRangeRadarViewController : UIViewController
-
+@property (nonatomic, strong) Event *event;
 @end

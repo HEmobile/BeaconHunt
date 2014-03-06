@@ -9,18 +9,23 @@
 #import "HELongRangeRadarViewController.h"
 #import <ESTBeaconManager.h>
 #import <Parse/Parse.h>
+#import "Beacon.h"
+#import "HECloseRangeRadarViewController.h"
 
 NSUInteger const HEMaxBeaconsOnScreen = 3;
+NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
 
 @interface HELongRangeRadarViewController ()<ESTBeaconManagerDelegate>
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) NSArray *visibleBeacons;
+@property (nonatomic, strong) NSArray *visibleEstBeacons;
 @property (weak, nonatomic) IBOutlet UIView *beaconContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *radarImageView;
 @end
 
 @implementation HELongRangeRadarViewController {
     CGFloat _radarYOrigin;
+    BOOL _showedBeaconsInfo;
 }
 
 #pragma mark - LIFE CYCLE
@@ -28,20 +33,18 @@ NSUInteger const HEMaxBeaconsOnScreen = 3;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.visibleBeacons = [[NSMutableArray alloc] initWithCapacity:3];
-	[self setupManager];
-    
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    [self setupManager];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     _radarYOrigin = self.radarImageView.frame.origin.y;
-    
-    [self setupBeacons];
+    NSLog(@"event.beacons:%u",[self.event.beacons count]);
+    if (!self.visibleBeacons) {
+        self.visibleBeacons = [[NSMutableArray alloc] initWithCapacity:3];
+        [self setupBeacons];
+    }
 }
 
 #pragma mark SETUP ESTIMOTE/BEACONS
@@ -70,11 +73,19 @@ NSUInteger const HEMaxBeaconsOnScreen = 3;
     NSMutableArray *beaconViewsArr = [[NSMutableArray alloc] initWithCapacity:[beaconImages count]];
     int i = 0;
     for (NSString *beaconImgName in beaconImages) {
-        UIImageView *beaconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:beaconImgName]];
+        //UIImageView *beaconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:beaconImgName]];
+        UIImage *buttonImage = [UIImage imageNamed:beaconImgName];
+        UIButton *beaconView = [UIButton buttonWithType:UIButtonTypeCustom];
+        beaconView.tag = i;
+        beaconView.titleLabel.text = @"";
+        [beaconView setImage:[UIImage imageNamed:beaconImgName] forState:UIControlStateNormal];
+        beaconView.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+        //[cell.likeButton addTarget:self action:@selector(likeItToogle:) forControlEvents:UIControlEventTouchUpInside];
+        [beaconView addTarget:self action:@selector(trackBeacon:) forControlEvents:UIControlEventTouchUpInside];
         beaconView.hidden = YES;
         [beaconViewsArr addObject:beaconView];
         [self.beaconContainer addSubview:beaconView];
-        //beaconView.center = [self centerForNearBeacon:i];
+        beaconView.center = [self centerForNearBeacon:i];
         i++;
     }
     self.visibleBeacons = [beaconViewsArr copy];
@@ -134,43 +145,44 @@ NSUInteger const HEMaxBeaconsOnScreen = 3;
     [self.visibleBeacons removeAllObjects];
     */
     
-    
+    //[self showBeaconsInformations:beacons];
+    self.visibleEstBeacons = beacons;
     for (NSInteger i = 0; i < [self.visibleBeacons count]; i++) {
         if (i < [beacons count]) {
             ESTBeacon *beacon = [beacons objectAtIndex:i];
             
             [beacon readBeaconPowerWithCompletion:^(ESTBeaconPower value, NSError *error) {
-                NSLog(@"beacon power:%d",value);
+                //NSLog(@"beacon power:%d",value);
             }];
             
             //UIImageView *beaconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[beaconImages objectAtIndex:i]]];
             //[self.visibleBeacons addObject:beaconView];
             //[self.beaconContainer addSubview:beaconView];
-            NSLog(@"add beacon:%@",[beacon proximityUUID]);
-            NSLog(@"signal strenght:%@",[beacon power]);
-            NSLog(@"Proximity:%ld",beacon.proximity);
-            UIImageView *beaconView = [self.visibleBeacons objectAtIndex:i];
+            //NSLog(@"add beacon:%@",[beacon proximityUUID]);
+            //NSLog(@"signal strenght:%@",[beacon power]);
+            //NSLog(@"Proximity:%d",beacon.proximity);
+            UIButton *beaconView = [self.visibleBeacons objectAtIndex:i];
             beaconView.hidden = NO;
             switch (beacon.proximity) {
                 case CLProximityImmediate:
-                    NSLog(@"Immediate");
+                    //NSLog(@"Immediate");
                     beaconView.center = [self centerForImmediateBeacon:i];
                     break;
                 case CLProximityNear:
-                    NSLog(@"Near");
+                    //NSLog(@"Near");
                     beaconView.center = [self centerForNearBeacon:i];
                     break;
                 case CLProximityFar:
-                    NSLog(@"Far");
+                    //NSLog(@"Far");
                     beaconView.center = [self centerForFarBeacon:i];
                     break;
                 default:
-                    NSLog(@"ERRADO");
+                    //NSLog(@"ERRADO");
                     beaconView.hidden = YES;
                     break;
             }
         } else {
-            UIImageView *beaconView = [self.visibleBeacons objectAtIndex:i];
+            UIButton *beaconView = [self.visibleBeacons objectAtIndex:i];
             beaconView.hidden = YES;
         }
         /*
@@ -179,8 +191,59 @@ NSUInteger const HEMaxBeaconsOnScreen = 3;
         }
          */
     }
-    NSLog(@"---END--");
+    //NSLog(@"---END--");
     
+}
+
+#pragma mark ACTIONS
+
+- (void)trackBeacon:(UIButton *)sender
+{
+    NSLog(@"beacon clicked:%i",sender.tag);
+    
+    if (sender.tag < [self.visibleEstBeacons count]) {
+        ESTBeacon *selectedBeacon = [self.visibleEstBeacons objectAtIndex:sender.tag];
+        NSLog(@"selectedBeacon major:%@",selectedBeacon.major);
+        Beacon *beacon = [self.event beaconForEstimoteBeacon:selectedBeacon];
+        
+        [self performSegueWithIdentifier:HETrackBeaconSegueID sender:beacon];
+    }
+}
+
+- (BOOL)isValidBeacon:(ESTBeacon *)estBeacon
+{
+    for (Beacon *beacon in self.event.beacons) {
+        if ([estBeacon.proximityUUID.UUIDString isEqualToString:beacon.proxUUID] && [estBeacon.major isEqualToNumber:beacon.majorId] && [estBeacon.minor isEqualToNumber:beacon.minorId]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void)showBeaconsInformations:(NSArray *)beacons
+{
+    if (_showedBeaconsInfo) return;
+    _showedBeaconsInfo = YES;
+    
+    for (NSInteger i = 0; i < [beacons count]; i++) {
+        ESTBeacon *beacon = [beacons objectAtIndex:i];
+        NSLog(@"beacon %u",i);
+        NSLog(@"uuid:%@",beacon.proximityUUID.UUIDString);
+        NSLog(@"major:%@",[beacon major]);
+        NSLog(@"minor:%@",[beacon minor]);
+        NSLog(@"-----");
+    }
+}
+
+#pragma mark SEGUES
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:HETrackBeaconSegueID]) {
+        HECloseRangeRadarViewController *closeRangeVC = segue.destinationViewController;
+        
+        closeRangeVC.beacon = sender;
+    }
 }
 
 @end
