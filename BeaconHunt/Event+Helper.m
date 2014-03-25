@@ -33,7 +33,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d rows.", objects.count);
+            NSLog(@"Successfully retrieved %lu rows.", (unsigned long)objects.count);
             // Do something with the found objects
             [Event importWithServerData:objects];
             completion(YES,nil);
@@ -133,6 +133,17 @@
     }
     
     return nil;
+}
+
+- (BOOL)isActiveBeacon:(ESTBeacon *)estBeacon
+{
+    for (Beacon *beacon in self.beacons) {
+        if (![beacon.found boolValue] && [beacon isEstimoteBeacon:estBeacon]) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 @end

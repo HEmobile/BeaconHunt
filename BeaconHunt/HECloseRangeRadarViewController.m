@@ -13,7 +13,7 @@
 #define DOT_MIN_POS 120
 #define DOT_MAX_POS screenHeight - 70;
 
-@interface HECloseRangeRadarViewController() <ESTBeaconManagerDelegate>
+@interface HECloseRangeRadarViewController() <ESTBeaconManagerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
@@ -95,10 +95,12 @@
         for (ESTBeacon* cBeacon in beacons)
         {
             // update beacon it same as selected initially
+            //NSLog(@"selected Beacon minor:%@",self.beacon.minorId);
+            //NSLog(@"current Beacon minor:%@",cBeacon.minor);
             if([self.beacon.majorId unsignedShortValue] == [cBeacon.major unsignedShortValue] &&
                [self.beacon.minorId unsignedShortValue] == [cBeacon.minor unsignedShortValue])
             {
-                NSLog(@"found beacon");
+                //NSLog(@"found beacon");
                 self.selectedBeacon = cBeacon;
             }
         }
@@ -114,5 +116,30 @@
         }
     }
 }
+
+- (IBAction)foundBeacon:(UIButton *)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Beacon Encontrado"
+                                                    message:@"Digite a senha descoberta para registrar esse beacon"
+                                                   delegate: self
+                                          cancelButtonTitle:@"Cancelar"
+                                          otherButtonTitles:@"Ok", nil];
+    
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"buttonIndex:%li",(long)buttonIndex);
+    // 0 = Later, 1 = Now, 2 = Never;
+    if (buttonIndex == 1) {
+        NSLog(@"PASSWORD:%@",[alertView textFieldAtIndex:0].text);
+        
+    }
+}
+
+//- (void)registerFoundedBeacon
+
 
 @end

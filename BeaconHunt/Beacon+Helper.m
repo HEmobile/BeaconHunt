@@ -78,7 +78,8 @@
     beacon.event = event;
     beacon.majorId = pfObject[@"majorId"];
     beacon.minorId = pfObject[@"minorId"];
-    beacon.minorId = pfObject[@"minorId"];
+    beacon.password = pfObject[@"password"];
+    beacon.proxUUID = pfObject[@"proxUUID"];
     //event.name = pfObject[@"name"];
     
     return beacon;
@@ -119,6 +120,7 @@
 
 - (BOOL) isEstimoteBeacon:(ESTBeacon *)estimoteBeacon
 {
+    //NSLog(@"beacon major:%@ minor:%@", self.majorId, self.minorId);
     if ([self.majorId isEqualToNumber:estimoteBeacon.major] && [self.minorId isEqualToNumber:estimoteBeacon.minor]) {
         return YES;
     } else {

@@ -16,4 +16,5 @@
 + (NSArray *)orderedList;
 + (Event *)eventWithParseObject:(PFObject *)pfObject;
 - (Beacon *)beaconForEstimoteBeacon:(ESTBeacon *)estBeacon;
+- (BOOL)isActiveBeacon:(ESTBeacon *)estBeacon;
 @end

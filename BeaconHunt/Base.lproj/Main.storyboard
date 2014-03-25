@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tjy-wF-tUx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tjy-wF-tUx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Close Range Radar View Controller - Track Beacon-->
@@ -20,12 +20,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFa-Pk-iNJ">
+                                <rect key="frame" x="125" y="448" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="R4D-AI-Cta"/>
+                                    <constraint firstAttribute="width" constant="69" id="dX7-Te-ErY"/>
+                                </constraints>
+                                <state key="normal" title="Encontrei!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="foundBeacon:" destination="8zv-gt-ax4" eventType="touchUpInside" id="set-fv-7uQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eHQ-1f-Nx7" firstAttribute="leading" secondItem="Bhl-Rv-5NZ" secondAttribute="leading" id="0DC-hc-z9p"/>
                             <constraint firstItem="eHQ-1f-Nx7" firstAttribute="top" secondItem="Bhl-Rv-5NZ" secondAttribute="top" id="GWY-Jb-3D5"/>
                             <constraint firstAttribute="trailing" secondItem="eHQ-1f-Nx7" secondAttribute="trailing" id="OKU-J1-ohZ"/>
+                            <constraint firstItem="QDE-xE-JIp" firstAttribute="top" secondItem="mFa-Pk-iNJ" secondAttribute="bottom" constant="2" id="QKD-sw-WHm"/>
+                            <constraint firstAttribute="centerX" secondItem="mFa-Pk-iNJ" secondAttribute="centerX" id="b1I-1C-o7f"/>
                             <constraint firstItem="QDE-xE-JIp" firstAttribute="top" secondItem="eHQ-1f-Nx7" secondAttribute="bottom" id="llm-pM-qeB"/>
                         </constraints>
                     </view>
@@ -182,7 +198,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="radarBackgroundBig" translatesAutoresizingMaskIntoConstraints="NO" id="IH4-YU-xgT">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" image="invRadarBg" translatesAutoresizingMaskIntoConstraints="NO" id="IH4-YU-xgT">
                                         <rect key="frame" x="-39" y="10" width="397" height="397"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <constraints>
@@ -292,12 +308,29 @@
             </objects>
             <point key="canvasLocation" x="545" y="-15"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="yWt-Yc-3sc">
+            <objects>
+                <viewController id="L8t-09-BRN" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lVM-yl-Zci"/>
+                        <viewControllerLayoutGuide type="bottom" id="mxc-UE-Uaa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1cg-GW-RK4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pk1-h1-zFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="but_red" width="9" height="9"/>
         <image name="img_logo" width="500" height="500"/>
         <image name="img_text_field" width="9" height="9"/>
-        <image name="radarBackgroundBig" width="397" height="397"/>
+        <image name="invRadarBg" width="319" height="486"/>
         <image name="radarStripedBackground" width="320" height="568"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
