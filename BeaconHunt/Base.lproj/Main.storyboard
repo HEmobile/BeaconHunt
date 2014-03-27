@@ -131,9 +131,25 @@
                                     <action selector="registerUser:" destination="O2K-Nn-h3m" eventType="touchUpInside" id="wt9-ob-fHF"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="IC_HEmobile" translatesAutoresizingMaskIntoConstraints="NO" id="xDC-Pf-bM5">
+                                <rect key="frame" x="180" y="430" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="IC_Liguagil" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-Ue-OmX">
+                                <rect key="frame" x="32" y="408" width="102" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Produzido por" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoA-OS-wOJ">
+                                <rect key="frame" x="180" y="408" width="86" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="sendButton" destination="9Gg-mA-Qle" id="3tQ-6e-Lnv"/>
                         <outlet property="userEmailTextField" destination="bul-zf-pFv" id="GXy-fn-Q12"/>
@@ -295,6 +311,8 @@
     <resources>
         <image name="BG_login_wide" width="320" height="568"/>
         <image name="IC_Email" width="26" height="24"/>
+        <image name="IC_HEmobile" width="108" height="30"/>
+        <image name="IC_Liguagil" width="102" height="52"/>
         <image name="IC_Logo" width="320" height="132"/>
         <image name="Ic_Nome" width="26" height="24"/>
         <image name="invRadarBg" width="319" height="486"/>
