@@ -134,7 +134,7 @@
 
 - (BOOL)isEstimoteBeacon:(ESTBeacon *)estimoteBeacon
 {
-    NSLog(@"beacon major:%@ minor:%@", self.majorId, self.minorId);
+    //NSLog(@"beacon major:%@ minor:%@", self.majorId, self.minorId);
     if ([self.majorId isEqualToNumber:estimoteBeacon.major] && [self.minorId isEqualToNumber:estimoteBeacon.minor]) {
         return YES;
     } else {

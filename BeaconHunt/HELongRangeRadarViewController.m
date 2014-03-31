@@ -43,21 +43,11 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
     self.currentBeacon = [self.event currentBeacon];
     [self showBeaconForProximity:CLProximityUnknown];
     [self setupManager];
-    
-    //[self setupManager];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    /*
-    _radarYOrigin = self.radarImageView.frame.origin.y;
-    NSLog(@"event.beacons:%lu",(unsigned long)[self.event.beacons count]);
-    if (!self.visibleBeacons) {
-        self.visibleBeacons = [[NSMutableArray alloc] initWithCapacity:3];
-        [self setupBeacons];
-    }
-    */
 }
 
 - (void)setupInterface
@@ -67,6 +57,18 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
     if (screenHeight > 480) {
         self.topViewVerticalSpaceConstraint.constant += 44;
     }
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(trackBeacon)];
+    [self.immediateImageView addGestureRecognizer:tap];
+    self.immediateImageView.userInteractionEnabled = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    ESTBeaconRegion* region = [[ESTBeaconRegion alloc] initRegionWithIdentifier:@"EstimoteSampleRegion"];
+    [self.beaconManager stopRangingBeaconsInRegion:region];
 }
 
 #pragma mark SETUP ESTIMOTE/BEACONS
@@ -84,6 +86,10 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
     // start looking for estimote beacons in region
     // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
     [self.beaconManager startRangingBeaconsInRegion:region];
+    
+    //
+    [self.beaconManager startMonitoringForRegion:region];
+    [self.beaconManager requestStateForRegion:region];
 }
 /*
 - (void)setupBeacons
@@ -161,17 +167,6 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
 {
     NSLog(@"-------Hearing:%u----",[beacons count]);
     
-    /*
-    NSLog(@"visible:%u",[self.visibleBeacons count]);
-    for (UIImageView *beaconView in self.visibleBeacons) {
-        NSLog(@"remove");
-        [beaconView removeFromSuperview];
-    }
-    [self.visibleBeacons removeAllObjects];
-    */
-    
-    //[self showBeaconsInformations:beacons];
-    //self.visibleEstBeacons = beacons;
     for (int i = 0; i < [beacons count]; i++) {
         ESTBeacon *beacon = [beacons objectAtIndex:i];
         if ([self.currentBeacon isEstimoteBeacon:beacon]) {
@@ -179,57 +174,43 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
             [self showBeaconForProximity:beacon.proximity];
         }
     }
-    /*
-            if ([self.event isActiveBeacon:beacon]) {
-                //UIImageView *beaconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[beaconImages objectAtIndex:i]]];
-                //[self.visibleBeacons addObject:beaconView];
-                //[self.beaconContainer addSubview:beaconView];
-                //NSLog(@"add beacon:%@",[beacon proximityUUID]);
-                //NSLog(@"signal strenght:%@",[beacon power]);
-                //NSLog(@"Proximity:%d",beacon.proximity);
-                UIButton *beaconView = [self.visibleBeacons objectAtIndex:i];
-                beaconView.hidden = NO;
-                switch (beacon.proximity) {
-                    case CLProximityImmediate:
-                        //NSLog(@"Immediate");
-                        beaconView.center = [self centerForImmediateBeacon:i];
-                        break;
-                    case CLProximityNear:
-                        //NSLog(@"Near");
-                        beaconView.center = [self centerForNearBeacon:i];
-                        break;
-                    case CLProximityFar:
-                        //NSLog(@"Far");
-                        beaconView.center = [self centerForFarBeacon:i];
-                        break;
-                    default:
-                        //NSLog(@"ERRADO");
-                        beaconView.hidden = YES;
-                        break;
-                }
-            } else {
-                UIButton *beaconView = [self.visibleBeacons objectAtIndex:i];
-                beaconView.hidden = YES;
-            }
-        } else {
-            UIButton *beaconView = [self.visibleBeacons objectAtIndex:i];
-            beaconView.hidden = YES;
-        }
-    }
-    //NSLog(@"---END--");
-    */
+}
+
+-(void)beaconManager:(ESTBeaconManager *)manager
+      didEnterRegion:(ESTBeaconRegion *)region
+{
+    // iPhone/iPad entered beacon zone
+    // present local notification
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Você entrou na area do jogo, veja sua dica e comece a caçada.";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+-(void)beaconManager:(ESTBeaconManager *)manager
+       didExitRegion:(ESTBeaconRegion *)region
+{
+    // present local notification
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Você está saindo da area do jogo, mas fique tranquilo que iremos te informar quando você voltar";
+    notification.soundName = UILocalNotificationDefaultSoundName;
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 #pragma mark ACTIONS
+
+- (void)trackBeacon
+{
+    [self performSegueWithIdentifier:HETrackBeaconSegueID sender:nil];
+}
 
 - (void)showBeaconForProximity:(CLProximity)proximity
 {
     self.immediateImageView.hidden = YES;
     self.nearImageView.hidden = YES;
     self.farImageView.hidden = YES;
-    
-    self.mainTextLabel.text = [@"Nada por perto!" uppercaseString];
-    self.subtextLabel.text = [@"De uma volta e espere por uma dica." uppercaseString];
     
     switch (proximity) {
         case CLProximityImmediate:
@@ -252,10 +233,13 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
             break;
         default:
             //NSLog(@"ERRADO");
+            self.mainTextLabel.text = [@"Nada por perto!" uppercaseString];
+            self.subtextLabel.text = [@"De uma volta e espere por um aviso." uppercaseString];
+            
             break;
     }
 }
-
+/*
 - (void)trackBeacon:(UIButton *)sender
 {
     NSLog(@"beacon clicked:%li",(long)sender.tag);
@@ -301,7 +285,7 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
         NSLog(@"-----");
     }
 }
-
+*/
 #pragma mark SEGUES
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -309,7 +293,7 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
     if ([segue.identifier isEqualToString:HETrackBeaconSegueID]) {
         HECloseRangeRadarViewController *closeRangeVC = segue.destinationViewController;
         
-        closeRangeVC.beacon = sender;
+        closeRangeVC.beacon = self.currentBeacon;
     }
 }
 

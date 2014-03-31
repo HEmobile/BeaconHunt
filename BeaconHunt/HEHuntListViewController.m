@@ -52,6 +52,8 @@ NSString *const BHStartHuntSegueID = @"Start Hunt Segue";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     if ([segue.identifier isEqualToString:BHRegisterUserSegueID]) {
         HERegisterViewController *registerVC = segue.destinationViewController;
         

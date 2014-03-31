@@ -15,6 +15,7 @@
 
 @interface HECloseRangeRadarViewController() <ESTBeaconManagerDelegate, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *beaconRepresentationBottomSpaceConstraint;
 
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) UIImageView*      positionDot;
@@ -28,17 +29,6 @@
 @implementation HECloseRangeRadarViewController
 
 #pragma mark - View Setup
-
-- (void)setupBackgroundImage
-{
-    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    
-    if (screenHeight > 480) {
-        self.backgroundImageView.image = [UIImage imageNamed:@"backgroundBig"];
-    } else {
-        self.backgroundImageView.image = [UIImage imageNamed:@"backgroundSmall"];
-    }
-}
 
 - (void)setupDotImage
 {
@@ -54,8 +44,8 @@
 
 - (void)setupView
 {
-    [self setupBackgroundImage];
-    [self setupDotImage];
+    //[self setupBackgroundImage];
+    //[self setupDotImage];
 }
 
 #pragma mark - Manager setup
@@ -90,6 +80,31 @@
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
+    BOOL beaconPresent = NO;
+    for (ESTBeacon* cBeacon in beacons) {
+        if ([self.beacon isEstimoteBeacon:cBeacon]) {
+            beaconPresent = YES;
+            // based on observation rssi is not getting bigger then -30
+            // so it changes from -30 to -100 so we normalize
+            float distFactor = ((float)cBeacon.rssi + 30) / -70;
+            float distance = 10 + distFactor*250;
+            if (distance < 20) {
+                distance = 20;
+            }
+            NSLog(@"rssi:%f",(float)cBeacon.rssi);
+            NSLog(@"distFactor:%f",distFactor);
+            // calculate and set new y position
+            //float newYPos = self.dotMinPos + distFactor * self.dotRange;
+            //self.positionDot.center = CGPointMake(self.view.bounds.size.width / 2, newYPos);
+            self.beaconRepresentationBottomSpaceConstraint.constant = distance;
+        }
+    }
+    
+    if (!beaconPresent) {
+        NSLog(@"Beacon is too far");
+    }
+    /*
+    
     if([beacons count] > 0)
     {
         for (ESTBeacon* cBeacon in beacons)
@@ -115,6 +130,7 @@
             self.positionDot.center = CGPointMake(self.view.bounds.size.width / 2, newYPos);
         }
     }
+    */
 }
 
 - (IBAction)foundBeacon:(UIButton *)sender {
@@ -132,7 +148,7 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     NSLog(@"buttonIndex:%li",(long)buttonIndex);
-    // 0 = Later, 1 = Now, 2 = Never;
+    // 0 = Cancelar, 1 = Ok
     if (buttonIndex == 1) {
         NSLog(@"PASSWORD:%@",[alertView textFieldAtIndex:0].text);
         

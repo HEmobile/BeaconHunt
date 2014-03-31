@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Close Range Radar View Controller - Track Beacon-->
+        <!--Close Range Radar View Controller - RASTREANDO-->
         <scene sceneID="QT4-wb-XvJ">
             <objects>
                 <viewController id="8zv-gt-ax4" customClass="HECloseRangeRadarViewController" sceneMemberID="viewController">
@@ -16,38 +16,55 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eHQ-1f-Nx7">
+                            <imageView userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_in" translatesAutoresizingMaskIntoConstraints="NO" id="eHQ-1f-Nx7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFa-Pk-iNJ">
-                                <rect key="frame" x="125" y="384" width="69" height="30"/>
+                                <rect key="frame" x="80" y="352" width="160" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="R4D-AI-Cta"/>
-                                    <constraint firstAttribute="width" constant="69" id="dX7-Te-ErY"/>
+                                    <constraint firstAttribute="height" constant="44" id="R4D-AI-Cta"/>
+                                    <constraint firstAttribute="width" constant="160" id="dX7-Te-ErY"/>
                                 </constraints>
-                                <state key="normal" title="Encontrei!">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                                <state key="normal" title="ACHEI!!" backgroundImage="bt-enviar">
+                                    <color key="titleColor" red="0.46666666670000001" green="0.078431372550000003" blue="0.019607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="foundBeacon:" destination="8zv-gt-ax4" eventType="touchUpInside" id="set-fv-7uQ"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ic_pic-white" translatesAutoresizingMaskIntoConstraints="NO" id="C7t-FC-hqd">
+                                <rect key="frame" x="117" y="209" width="86" height="128"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="XAq-FW-b5w"/>
+                                    <constraint firstAttribute="width" constant="86" id="eF4-yr-qcG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eHQ-1f-Nx7" firstAttribute="leading" secondItem="Bhl-Rv-5NZ" secondAttribute="leading" id="0DC-hc-z9p"/>
+                            <constraint firstItem="eHQ-1f-Nx7" firstAttribute="leading" secondItem="Bhl-Rv-5NZ" secondAttribute="leading" id="8U2-AP-qsw"/>
                             <constraint firstItem="eHQ-1f-Nx7" firstAttribute="top" secondItem="Bhl-Rv-5NZ" secondAttribute="top" id="GWY-Jb-3D5"/>
+                            <constraint firstItem="QDE-xE-JIp" firstAttribute="top" secondItem="eHQ-1f-Nx7" secondAttribute="bottom" id="HEj-Pg-Yih"/>
+                            <constraint firstItem="eHQ-1f-Nx7" firstAttribute="top" secondItem="fiS-xP-C02" secondAttribute="bottom" id="JTY-Eq-lbX"/>
                             <constraint firstAttribute="trailing" secondItem="eHQ-1f-Nx7" secondAttribute="trailing" id="OKU-J1-ohZ"/>
-                            <constraint firstItem="QDE-xE-JIp" firstAttribute="top" secondItem="mFa-Pk-iNJ" secondAttribute="bottom" constant="2" id="QKD-sw-WHm"/>
+                            <constraint firstItem="QDE-xE-JIp" firstAttribute="top" secondItem="mFa-Pk-iNJ" secondAttribute="bottom" constant="20" id="QKD-sw-WHm"/>
                             <constraint firstAttribute="centerX" secondItem="mFa-Pk-iNJ" secondAttribute="centerX" id="b1I-1C-o7f"/>
+                            <constraint firstItem="mFa-Pk-iNJ" firstAttribute="top" secondItem="C7t-FC-hqd" secondAttribute="bottom" constant="15" id="grs-hg-sNQ"/>
                             <constraint firstItem="QDE-xE-JIp" firstAttribute="top" secondItem="eHQ-1f-Nx7" secondAttribute="bottom" id="llm-pM-qeB"/>
+                            <constraint firstAttribute="trailing" secondItem="eHQ-1f-Nx7" secondAttribute="trailing" id="oi2-Zw-Rgm"/>
+                            <constraint firstAttribute="centerX" secondItem="C7t-FC-hqd" secondAttribute="centerX" id="va6-7d-G6i"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Track Beacon" id="4Ex-zu-PRB"/>
+                    <navigationItem key="navigationItem" title="RASTREANDO" id="4Ex-zu-PRB"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="eHQ-1f-Nx7" id="uJ3-YW-hfI"/>
+                        <outlet property="beaconRepresentationBottomSpaceConstraint" destination="grs-hg-sNQ" id="OEw-yH-G0y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgH-qZ-Z1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -490,6 +507,7 @@
         <image name="bt-enviar" width="13" height="13"/>
         <image name="but-text" width="13" height="13"/>
         <image name="ic_phone" width="33" height="64"/>
+        <image name="ic_pic-white" width="86" height="128"/>
         <image name="icn_picaway" width="31" height="46"/>
         <image name="icn_picmedium" width="52" height="76"/>
         <image name="icn_picnear" width="86" height="128"/>

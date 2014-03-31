@@ -144,7 +144,7 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Main.sqlite"];
     // Remove comment to clear the DB - TODO
-    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
+    //[[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil];
     
     NSError *error = nil;
     NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
