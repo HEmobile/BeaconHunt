@@ -81,7 +81,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-9e-N6Z">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="but-text" translatesAutoresizingMaskIntoConstraints="NO" id="yeD-9e-N6Z">
                                 <rect key="frame" x="32" y="220" width="256" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -100,7 +100,7 @@
                                 <rect key="frame" x="42" y="230" width="26" height="24"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJL-MQ-eja">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="but-text" translatesAutoresizingMaskIntoConstraints="NO" id="rJL-MQ-eja">
                                 <rect key="frame" x="32" y="268" width="256" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -123,7 +123,7 @@
                                 <rect key="frame" x="32" y="320" width="256" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="ENVIAR">
+                                <state key="normal" title="ENVIAR" backgroundImage="bt-enviar">
                                     <color key="titleColor" red="0.46666666666666667" green="0.078431372549019607" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -273,14 +273,15 @@
                             <constraint firstItem="EY8-ih-9c3" firstAttribute="leading" secondItem="Wyj-0m-XwV" secondAttribute="leading" id="Czl-vF-Uic"/>
                             <constraint firstAttribute="trailing" secondItem="whw-Te-rox" secondAttribute="trailing" constant="3" id="FLI-dS-sUB"/>
                             <constraint firstItem="6Yk-f5-XtG" firstAttribute="leading" secondItem="Wyj-0m-XwV" secondAttribute="leading" id="IfO-cz-hcj"/>
+                            <constraint firstItem="MTg-I5-HHH" firstAttribute="top" secondItem="whw-Te-rox" secondAttribute="bottom" constant="83" id="N60-Vz-fyW"/>
                             <constraint firstAttribute="trailing" secondItem="cFe-xV-0Dc" secondAttribute="trailing" constant="6" id="NX0-76-SuL"/>
                             <constraint firstItem="mNT-Yx-csh" firstAttribute="top" secondItem="6Yk-f5-XtG" secondAttribute="bottom" constant="91" id="PXg-mw-Lf4"/>
                             <constraint firstAttribute="trailing" secondItem="6Yk-f5-XtG" secondAttribute="trailing" id="TXy-q9-i8M"/>
                             <constraint firstAttribute="trailing" secondItem="MTg-I5-HHH" secondAttribute="trailing" constant="6" id="Vlx-H2-6TW"/>
-                            <constraint firstItem="MTg-I5-HHH" firstAttribute="top" secondItem="xcB-Dc-816" secondAttribute="bottom" constant="128" id="XQG-lB-PuS"/>
                             <constraint firstAttribute="centerX" secondItem="R10-qf-YW7" secondAttribute="centerX" id="Zkt-SB-xtE"/>
                             <constraint firstAttribute="trailing" secondItem="SMI-8k-aMS" secondAttribute="trailing" id="dQy-lt-Vcr"/>
                             <constraint firstAttribute="trailing" secondItem="lEl-C3-s0j" secondAttribute="trailing" id="eWd-fw-8Ac"/>
+                            <constraint firstItem="cFe-xV-0Dc" firstAttribute="top" secondItem="MTg-I5-HHH" secondAttribute="bottom" constant="83" id="foJ-U6-gRT"/>
                             <constraint firstItem="R10-qf-YW7" firstAttribute="top" secondItem="6Yk-f5-XtG" secondAttribute="bottom" constant="129" id="gwc-rp-boU"/>
                             <constraint firstItem="6Yk-f5-XtG" firstAttribute="top" secondItem="Wyj-0m-XwV" secondAttribute="top" constant="63" id="kJb-yz-eBr"/>
                             <constraint firstItem="SMI-8k-aMS" firstAttribute="leading" secondItem="Wyj-0m-XwV" secondAttribute="leading" id="lA9-K5-k6E"/>
@@ -290,13 +291,13 @@
                             <constraint firstAttribute="centerX" secondItem="7yB-Ko-mwM" secondAttribute="centerX" id="sfd-fa-ODF"/>
                             <constraint firstAttribute="trailing" secondItem="EY8-ih-9c3" secondAttribute="trailing" id="t00-Q0-oFZ"/>
                             <constraint firstItem="7yB-Ko-mwM" firstAttribute="top" secondItem="R10-qf-YW7" secondAttribute="bottom" constant="16" id="t0U-2i-PKs"/>
-                            <constraint firstItem="cFe-xV-0Dc" firstAttribute="top" secondItem="xcB-Dc-816" secondAttribute="bottom" constant="232" id="uJW-F5-BVU"/>
                             <constraint firstItem="lEl-C3-s0j" firstAttribute="top" secondItem="EY8-ih-9c3" secondAttribute="bottom" id="vz6-3O-swo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BEACON HUNT" id="EbG-se-6R8"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="topViewVerticalSpaceConstraint" destination="kJb-yz-eBr" id="yWd-cK-7Kw"/>
                         <segue destination="8zv-gt-ax4" kind="push" identifier="Track Beacon Segue" id="nfV-r4-WJU"/>
                     </connections>
                 </viewController>
@@ -391,6 +392,8 @@
         <image name="IC_Logo" width="320" height="132"/>
         <image name="Ic_Nome" width="26" height="24"/>
         <image name="bg_in" width="320" height="568"/>
+        <image name="bt-enviar" width="13" height="13"/>
+        <image name="but-text" width="13" height="13"/>
         <image name="ic_phone" width="33" height="64"/>
         <image name="ic_pic-red" width="86" height="128"/>
         <image name="ic_pic-white" width="86" height="128"/>
