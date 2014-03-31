@@ -7,19 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A540061018E61E4B00F3CF0B /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A540060F18E61E4B00F3CF0B /* Beacon.m */; };
 		A555FBC318BE651E00E4036E /* HERegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBC218BE651E00E4036E /* HERegisterViewController.m */; };
-		A555FBC918BE672100E4036E /* HEActivityIndicatorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBC618BE672100E4036E /* HEActivityIndicatorButton.m */; };
-		A555FBCA18BE672100E4036E /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBC818BE672100E4036E /* NSString+Helper.m */; };
-		A555FBCD18BE688E00E4036E /* HEBasicTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBCC18BE688E00E4036E /* HEBasicTableViewController.m */; };
 		A555FBD018BE691700E4036E /* HEHuntListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBCF18BE691700E4036E /* HEHuntListViewController.m */; };
 		A555FBD318BE69D400E4036E /* BHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBD218BE69D400E4036E /* BHConstants.m */; };
 		A555FBD618BF908200E4036E /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A555FBD418BF908200E4036E /* Main.xcdatamodeld */; };
 		A555FBDC18BFA0D700E4036E /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBDB18BFA0D700E4036E /* Event.m */; };
-		A555FBDF18BFA10900E4036E /* NSManagedObject+LocalAccessors.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBDE18BFA10900E4036E /* NSManagedObject+LocalAccessors.m */; };
 		A555FBE218BFA1E900E4036E /* Event+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBE118BFA1E900E4036E /* Event+Helper.m */; };
 		A555FBE518BFB22600E4036E /* BHEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBE418BFB22600E4036E /* BHEventCell.m */; };
 		A555FBE818BFC9A600E4036E /* Beacon+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBE718BFC9A600E4036E /* Beacon+Helper.m */; };
-		A555FBEB18C1043100E4036E /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = A555FBEA18C1043100E4036E /* Beacon.m */; };
 		A565ADC41889B83500F66917 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC31889B83500F66917 /* Foundation.framework */; };
 		A565ADC61889B83500F66917 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC51889B83500F66917 /* CoreGraphics.framework */; };
 		A565ADC81889B83500F66917 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A565ADC71889B83500F66917 /* UIKit.framework */; };
@@ -50,14 +46,10 @@
 
 /* Begin PBXFileReference section */
 		5081DD72E3464BA6B1951769 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A540060E18E61E4B00F3CF0B /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
+		A540060F18E61E4B00F3CF0B /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
 		A555FBC118BE651E00E4036E /* HERegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HERegisterViewController.h; sourceTree = "<group>"; };
 		A555FBC218BE651E00E4036E /* HERegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HERegisterViewController.m; sourceTree = "<group>"; };
-		A555FBC518BE672100E4036E /* HEActivityIndicatorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HEActivityIndicatorButton.h; path = ../../HECommonClassesIOS/HEActivityIndicatorButton.h; sourceTree = "<group>"; };
-		A555FBC618BE672100E4036E /* HEActivityIndicatorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HEActivityIndicatorButton.m; path = ../../HECommonClassesIOS/HEActivityIndicatorButton.m; sourceTree = "<group>"; };
-		A555FBC718BE672100E4036E /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Helper.h"; path = "../../HECommonClassesIOS/NSString+Helper.h"; sourceTree = "<group>"; };
-		A555FBC818BE672100E4036E /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Helper.m"; path = "../../HECommonClassesIOS/NSString+Helper.m"; sourceTree = "<group>"; };
-		A555FBCB18BE688E00E4036E /* HEBasicTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEBasicTableViewController.h; sourceTree = "<group>"; };
-		A555FBCC18BE688E00E4036E /* HEBasicTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEBasicTableViewController.m; sourceTree = "<group>"; };
 		A555FBCE18BE691700E4036E /* HEHuntListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HEHuntListViewController.h; sourceTree = "<group>"; };
 		A555FBCF18BE691700E4036E /* HEHuntListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HEHuntListViewController.m; sourceTree = "<group>"; };
 		A555FBD118BE69D400E4036E /* BHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHConstants.h; sourceTree = "<group>"; };
@@ -65,16 +57,12 @@
 		A555FBD518BF908200E4036E /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		A555FBDA18BFA0D700E4036E /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		A555FBDB18BFA0D700E4036E /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		A555FBDD18BFA10900E4036E /* NSManagedObject+LocalAccessors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+LocalAccessors.h"; path = "../../HECommonClassesIOS/NSManagedObject+LocalAccessors.h"; sourceTree = "<group>"; };
-		A555FBDE18BFA10900E4036E /* NSManagedObject+LocalAccessors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+LocalAccessors.m"; path = "../../HECommonClassesIOS/NSManagedObject+LocalAccessors.m"; sourceTree = "<group>"; };
 		A555FBE018BFA1E900E4036E /* Event+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+Helper.h"; sourceTree = "<group>"; };
 		A555FBE118BFA1E900E4036E /* Event+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+Helper.m"; sourceTree = "<group>"; };
 		A555FBE318BFB22600E4036E /* BHEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHEventCell.h; sourceTree = "<group>"; };
 		A555FBE418BFB22600E4036E /* BHEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHEventCell.m; sourceTree = "<group>"; };
 		A555FBE618BFC9A600E4036E /* Beacon+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Beacon+Helper.h"; sourceTree = "<group>"; };
 		A555FBE718BFC9A600E4036E /* Beacon+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Beacon+Helper.m"; sourceTree = "<group>"; };
-		A555FBE918C1043100E4036E /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
-		A555FBEA18C1043100E4036E /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
 		A565ADC01889B83500F66917 /* BeaconHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A565ADC31889B83500F66917 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A565ADC51889B83500F66917 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -127,14 +115,6 @@
 		A555FBC418BE666F00E4036E /* Common Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A555FBCB18BE688E00E4036E /* HEBasicTableViewController.h */,
-				A555FBCC18BE688E00E4036E /* HEBasicTableViewController.m */,
-				A555FBDD18BFA10900E4036E /* NSManagedObject+LocalAccessors.h */,
-				A555FBDE18BFA10900E4036E /* NSManagedObject+LocalAccessors.m */,
-				A555FBC518BE672100E4036E /* HEActivityIndicatorButton.h */,
-				A555FBC618BE672100E4036E /* HEActivityIndicatorButton.m */,
-				A555FBC718BE672100E4036E /* NSString+Helper.h */,
-				A555FBC818BE672100E4036E /* NSString+Helper.m */,
 			);
 			name = "Common Classes";
 			sourceTree = "<group>";
@@ -222,8 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				A555FBD418BF908200E4036E /* Main.xcdatamodeld */,
-				A555FBE918C1043100E4036E /* Beacon.h */,
-				A555FBEA18C1043100E4036E /* Beacon.m */,
+				A540060E18E61E4B00F3CF0B /* Beacon.h */,
+				A540060F18E61E4B00F3CF0B /* Beacon.m */,
 				A555FBDA18BFA0D700E4036E /* Event.h */,
 				A555FBDB18BFA0D700E4036E /* Event.m */,
 				A555FBE018BFA1E900E4036E /* Event+Helper.h */,
@@ -395,22 +375,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				A555FBC318BE651E00E4036E /* HERegisterViewController.m in Sources */,
-				A555FBC918BE672100E4036E /* HEActivityIndicatorButton.m in Sources */,
 				A565AE001889C71D00F66917 /* HELongRangeRadarViewController.m in Sources */,
 				A555FBDC18BFA0D700E4036E /* Event.m in Sources */,
 				A555FBE518BFB22600E4036E /* BHEventCell.m in Sources */,
 				A555FBD318BE69D400E4036E /* BHConstants.m in Sources */,
-				A555FBEB18C1043100E4036E /* Beacon.m in Sources */,
 				A565ADD01889B83500F66917 /* main.m in Sources */,
 				A565ADFD1889BB4200F66917 /* HECloseRangeRadarViewController.m in Sources */,
+				A540061018E61E4B00F3CF0B /* Beacon.m in Sources */,
 				A555FBE818BFC9A600E4036E /* Beacon+Helper.m in Sources */,
-				A555FBCD18BE688E00E4036E /* HEBasicTableViewController.m in Sources */,
 				A555FBD018BE691700E4036E /* HEHuntListViewController.m in Sources */,
-				A555FBDF18BFA10900E4036E /* NSManagedObject+LocalAccessors.m in Sources */,
 				A565ADD41889B83500F66917 /* HEAppDelegate.m in Sources */,
 				A555FBD618BF908200E4036E /* Main.xcdatamodeld in Sources */,
 				A555FBE218BFA1E900E4036E /* Event+Helper.m in Sources */,
-				A555FBCA18BE672100E4036E /* NSString+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@
 //  Beacon.m
 //  BeaconHunt
 //
-//  Created by Roberto Silva on 28/02/14.
+//  Created by Roberto Silva on 28/03/14.
 //  Copyright (c) 2014 HE:mobile. All rights reserved.
 //
 
@@ -18,6 +18,13 @@
 @dynamic password;
 @dynamic proxUUID;
 @dynamic uniqueId;
+@dynamic farTitle;
+@dynamic farSubtitle;
+@dynamic nearTitle;
+@dynamic nearSubtitle;
+@dynamic immediateTitle;
+@dynamic immediateSubtitle;
+@dynamic order;
 @dynamic event;
 
 @end

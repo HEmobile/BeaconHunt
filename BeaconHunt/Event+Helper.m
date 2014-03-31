@@ -146,4 +146,16 @@
     return NO;
 }
 
+- (Beacon *)currentBeacon
+{
+    NSArray *sortOrder = [NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey: @"order" ascending: YES],nil];
+    
+    NSSet *notFoundBeacons = [self.beacons filteredSetUsingPredicate:[NSPredicate predicateWithFormat:@"found != %@", [NSNumber numberWithBool:YES]]];
+    NSArray *currentBeacons = [notFoundBeacons sortedArrayUsingDescriptors:sortOrder];
+    
+    NSLog(@"not found beacons:%u", [currentBeacons count]);
+    
+    return [currentBeacons firstObject];
+}
+
 @end

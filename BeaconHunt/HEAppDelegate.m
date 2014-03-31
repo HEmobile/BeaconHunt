@@ -51,6 +51,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
     // Override point for customization after application launch.
     [Parse setApplicationId:@"hH3VxchL20K3E5mFLCWp1t5C8RtRFWnCIYFKTuYm"
                   clientKey:@"N0iaWxsnSR9EQi2IUl57o1MwwyudeAMPRFugKmPa"];

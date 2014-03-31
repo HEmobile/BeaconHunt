@@ -37,12 +37,15 @@ NSString *const BHStartHuntSegueID = @"Start Hunt Segue";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    //[[FXKeychain defaultKeychain] removeObjectForKey:BHUserEmailKey];
+    [self loadFromServer];
+    /*
     if (![self hasCredentialsInKeychain]) {
         [self performSegueWithIdentifier:BHRegisterUserSegueID sender:self];
     } else {
         [self loadFromServer];
     }
+    */
 }
 
 #pragma mark SEGUE

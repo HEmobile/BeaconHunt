@@ -9,7 +9,7 @@
 #import "HELongRangeRadarViewController.h"
 #import <ESTBeaconManager.h>
 #import <Parse/Parse.h>
-#import "Beacon.h"
+#import "Beacon+Helper.h"
 #import "HECloseRangeRadarViewController.h"
 
 NSUInteger const HEMaxBeaconsOnScreen = 3;
@@ -19,8 +19,14 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
 @property (nonatomic, strong) ESTBeaconManager* beaconManager;
 @property (nonatomic, strong) NSArray *visibleBeacons;
 @property (nonatomic, strong) NSArray *visibleEstBeacons;
-@property (weak, nonatomic) IBOutlet UIView *beaconContainer;
-@property (weak, nonatomic) IBOutlet UIImageView *radarImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewVerticalSpaceConstraint;
+@property (strong, nonatomic) Beacon *currentBeacon;
+@property (weak, nonatomic) IBOutlet UIImageView *immediateImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *nearImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *farImageView;
+@property (weak, nonatomic) IBOutlet UILabel *mainTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subtextLabel;
+
 @end
 
 @implementation HELongRangeRadarViewController {
@@ -33,17 +39,33 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupInterface];
+    self.currentBeacon = [self.event currentBeacon];
+    [self showBeaconForProximity:CLProximityUnknown];
     [self setupManager];
+    
+    //[self setupManager];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    /*
     _radarYOrigin = self.radarImageView.frame.origin.y;
     NSLog(@"event.beacons:%lu",(unsigned long)[self.event.beacons count]);
     if (!self.visibleBeacons) {
         self.visibleBeacons = [[NSMutableArray alloc] initWithCapacity:3];
         [self setupBeacons];
+    }
+    */
+}
+
+- (void)setupInterface
+{
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    
+    if (screenHeight > 480) {
+        self.topViewVerticalSpaceConstraint.constant += 44;
     }
 }
 
@@ -51,6 +73,7 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
 
 - (void)setupManager
 {
+    NSLog(@"setupManager");
     // create manager instance
     self.beaconManager = [[ESTBeaconManager alloc] init];
     self.beaconManager.delegate = self;
@@ -62,7 +85,7 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
     // when beacon ranged beaconManager:didRangeBeacons:inRegion: invoked
     [self.beaconManager startRangingBeaconsInRegion:region];
 }
-
+/*
 - (void)setupBeacons
 {
     // ONLY 3 BEACONS ARE ALLOWED ON SCREEN FOR THE MOMENT
@@ -128,6 +151,7 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
         return CGPointMake(130+(rowOrder*44), _radarYOrigin+360);
     }
 }
+*/
 
 #pragma mark - ESTBeaconManagerDelegate Implementation
 
@@ -135,8 +159,9 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
      didRangeBeacons:(NSArray *)beacons
             inRegion:(ESTBeaconRegion *)region
 {
-    /*
     NSLog(@"-------Hearing:%u----",[beacons count]);
+    
+    /*
     NSLog(@"visible:%u",[self.visibleBeacons count]);
     for (UIImageView *beaconView in self.visibleBeacons) {
         NSLog(@"remove");
@@ -146,11 +171,15 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
     */
     
     //[self showBeaconsInformations:beacons];
-    self.visibleEstBeacons = beacons;
-    for (int i = 0; i < [self.visibleBeacons count]; i++) {
-        if (i < [beacons count]) {
-            ESTBeacon *beacon = [beacons objectAtIndex:i];
-            
+    //self.visibleEstBeacons = beacons;
+    for (int i = 0; i < [beacons count]; i++) {
+        ESTBeacon *beacon = [beacons objectAtIndex:i];
+        if ([self.currentBeacon isEstimoteBeacon:beacon]) {
+            NSLog(@"current beacon:%i",i);
+            [self showBeaconForProximity:beacon.proximity];
+        }
+    }
+    /*
             if ([self.event isActiveBeacon:beacon]) {
                 //UIImageView *beaconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[beaconImages objectAtIndex:i]]];
                 //[self.visibleBeacons addObject:beaconView];
@@ -186,17 +215,46 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
             UIButton *beaconView = [self.visibleBeacons objectAtIndex:i];
             beaconView.hidden = YES;
         }
-        /*
-        if (beacon.proximity != CLProximityUnknown) {
-         
-        }
-         */
     }
     //NSLog(@"---END--");
-    
+    */
 }
 
 #pragma mark ACTIONS
+
+- (void)showBeaconForProximity:(CLProximity)proximity
+{
+    self.immediateImageView.hidden = YES;
+    self.nearImageView.hidden = YES;
+    self.farImageView.hidden = YES;
+    
+    self.mainTextLabel.text = [@"Nada por perto!" uppercaseString];
+    self.subtextLabel.text = [@"De uma volta e espere por uma dica." uppercaseString];
+    
+    switch (proximity) {
+        case CLProximityImmediate:
+            //NSLog(@"Immediate");
+            self.immediateImageView.hidden = NO;
+            self.mainTextLabel.text = [self.currentBeacon.immediateTitle uppercaseString];
+            self.subtextLabel.text = [self.currentBeacon.immediateSubtitle uppercaseString];
+            break;
+        case CLProximityNear:
+            //NSLog(@"Near");
+            self.nearImageView.hidden = NO;
+            self.mainTextLabel.text = [self.currentBeacon.nearTitle uppercaseString];
+            self.subtextLabel.text = [self.currentBeacon.nearSubtitle uppercaseString];
+            break;
+        case CLProximityFar:
+            //NSLog(@"Far");
+            self.farImageView.hidden = NO;
+            self.mainTextLabel.text = [self.currentBeacon.farTitle uppercaseString];
+            self.subtextLabel.text = [self.currentBeacon.farSubtitle uppercaseString];
+            break;
+        default:
+            //NSLog(@"ERRADO");
+            break;
+    }
+}
 
 - (void)trackBeacon:(UIButton *)sender
 {
@@ -217,6 +275,14 @@ NSString *const HETrackBeaconSegueID = @"Track Beacon Segue";
         if ([estBeacon.proximityUUID.UUIDString isEqualToString:beacon.proxUUID] && [estBeacon.major isEqualToNumber:beacon.majorId] && [estBeacon.minor isEqualToNumber:beacon.minorId]) {
             return YES;
         }
+    }
+    return NO;
+}
+
+- (BOOL)isCurrentBeacon:(ESTBeacon *)estBeacon
+{
+    if ([estBeacon.proximityUUID.UUIDString isEqualToString:self.currentBeacon.proxUUID] && [estBeacon.major isEqualToNumber:self.currentBeacon.majorId] && [estBeacon.minor isEqualToNumber:self.currentBeacon.minorId]) {
+        return YES;
     }
     return NO;
 }

@@ -80,7 +80,14 @@
     beacon.minorId = pfObject[@"minorId"];
     beacon.password = pfObject[@"password"];
     beacon.proxUUID = pfObject[@"proxUUID"];
+    beacon.order = pfObject[@"order"];
     //event.name = pfObject[@"name"];
+    beacon.farTitle = pfObject[@"far_title"];
+    beacon.farSubtitle = pfObject[@"far_subtitle"];
+    beacon.nearTitle = pfObject[@"near_title"];
+    beacon.nearSubtitle = pfObject[@"near_subtitle"];
+    beacon.immediateTitle = pfObject[@"immed_title"];
+    beacon.immediateSubtitle = pfObject[@"immed_subtitle"];
     
     return beacon;
 }
@@ -101,7 +108,14 @@
     beacon.majorId = pfObject[@"majorId"];
     beacon.minorId = pfObject[@"minorId"];
     beacon.password = pfObject[@"password"];
+    beacon.order = pfObject[@"order"];
     //event.name = pfObject[@"name"];
+    beacon.farTitle = pfObject[@"far_title"];
+    beacon.farSubtitle = pfObject[@"far_subtitle"];
+    beacon.nearTitle = pfObject[@"near_title"];
+    beacon.nearSubtitle = pfObject[@"near_subtitle"];
+    beacon.immediateTitle = pfObject[@"immed_title"];
+    beacon.immediateSubtitle = pfObject[@"immed_subtitle"];
     
     return beacon;
 }
@@ -118,9 +132,9 @@
     }
 }
 
-- (BOOL) isEstimoteBeacon:(ESTBeacon *)estimoteBeacon
+- (BOOL)isEstimoteBeacon:(ESTBeacon *)estimoteBeacon
 {
-    //NSLog(@"beacon major:%@ minor:%@", self.majorId, self.minorId);
+    NSLog(@"beacon major:%@ minor:%@", self.majorId, self.minorId);
     if ([self.majorId isEqualToNumber:estimoteBeacon.major] && [self.minorId isEqualToNumber:estimoteBeacon.minor]) {
         return YES;
     } else {

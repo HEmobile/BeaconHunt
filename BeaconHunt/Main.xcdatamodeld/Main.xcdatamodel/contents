@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="Main v1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="Main v1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Beacon" representedClassName="Beacon" syncable="YES">
+        <attribute name="farSubtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="farTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="found" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="immediateSubtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="immediateTitle" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="majorId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="minorId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="nearSubtitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nearTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="proxUUID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uniqueId" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,7 +23,7 @@
         <relationship name="beacons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Beacon" inverseName="event" inverseEntity="Beacon" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Beacon" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Beacon" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="Event" positionX="0" positionY="0" width="128" height="103"/>
     </elements>
 </model>

@@ -17,4 +17,5 @@
 + (Event *)eventWithParseObject:(PFObject *)pfObject;
 - (Beacon *)beaconForEstimoteBeacon:(ESTBeacon *)estBeacon;
 - (BOOL)isActiveBeacon:(ESTBeacon *)estBeacon;
+- (Beacon *)currentBeacon;
 @end
